@@ -35,6 +35,9 @@ struct FMeshInfo
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ReturnedData")
 		TArray<FProcMeshTangent> Tangents;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ReturnedData")
+		FTransform RelativeTransform;
 };
 
 USTRUCT(BlueprintType)
@@ -46,7 +49,13 @@ struct FReturnedData
 		bool bSuccess;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ReturnedData")
-		FMeshInfo meshInfo;
+		int32 NumMeshes;
+
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ReturnedData")
+		TArray<FMeshInfo> meshInfo;
+
+
 };
 
 
