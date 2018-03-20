@@ -15,8 +15,10 @@ public class RuntimeMeshLoader : ModuleRules
         get { return Path.GetFullPath(Path.Combine(ModulePath, "../../ThirdParty/")); }
     }
 
-    public RuntimeMeshLoader(TargetInfo Target)
+    public RuntimeMeshLoader(ReadOnlyTargetRules Target) : base(Target)
 	{
+	    PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+
         PublicIncludePaths.AddRange(
 			new string[] {
 				"RuntimeMeshLoader/Public",
