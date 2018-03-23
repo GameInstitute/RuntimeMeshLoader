@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#include "RuntimeMeshLoader.h"
 #include "LoaderBPFunctionLibrary.h"
+#include "RuntimeMeshLoader.h"
 #include <assimp/Importer.hpp>  // C++ importer interface
 #include <assimp/scene.h>       // Output data structure
 #include <assimp/postprocess.h> // Post processing flags
@@ -54,7 +54,7 @@ FReturnedData ULoaderBPFunctionLibrary::LoadMesh(FString filepath, EPathType typ
 
 		for (uint32 i = 0; i < mScenePtr->mNumMeshes; ++i)
 		{
-			//deal with the relative tranformation,it is broken now.
+			//deal with the relative transformation, it is broken now.
 			for (uint32 m=0;m<mScenePtr->mRootNode->mNumChildren;++m)
 			{
 				aiMatrix4x4 tempTrans=mScenePtr->mRootNode->mChildren[m]->mTransformation;
@@ -78,7 +78,7 @@ FReturnedData ULoaderBPFunctionLibrary::LoadMesh(FString filepath, EPathType typ
 					mScenePtr->mMeshes[i]->mVertices[j].z);
 				result.meshInfo[i].Vertices.Push(vertex);
 
-				//法线
+				//Normal
 				if (mScenePtr->mMeshes[i]->HasNormals())
 				{
 					FVector normal = FVector(
@@ -92,7 +92,7 @@ FReturnedData ULoaderBPFunctionLibrary::LoadMesh(FString filepath, EPathType typ
 					result.meshInfo[i].Normals.Push(FVector::ZeroVector);
 				}
 
-				//UV坐标 - 坐标错乱
+				//UV Coordinates - inconsistent coordinates
 				if (mScenePtr->mMeshes[i]->HasTextureCoords(0) )
 				{
 
@@ -100,7 +100,7 @@ FReturnedData ULoaderBPFunctionLibrary::LoadMesh(FString filepath, EPathType typ
 					result.meshInfo[i].UV0.Add(uv);
 				}
 
-				//切线
+				//Tangent
 				if (mScenePtr->mMeshes[i]->HasTangentsAndBitangents())
 				{
 					FProcMeshTangent meshTangent = FProcMeshTangent(
@@ -111,7 +111,7 @@ FReturnedData ULoaderBPFunctionLibrary::LoadMesh(FString filepath, EPathType typ
 					result.meshInfo[i].Tangents.Push(meshTangent);
 				}
 
-				//顶点颜色
+				//Vertex color
 				if (mScenePtr->mMeshes[i]->HasVertexColors(0))
 				{
 						FLinearColor color = FLinearColor(
@@ -124,7 +124,7 @@ FReturnedData ULoaderBPFunctionLibrary::LoadMesh(FString filepath, EPathType typ
 				}
 			}
 			
-			//三角面序号
+			//Triangle number
 			for (uint32 l = 0; l < mScenePtr->mMeshes[i]->mNumFaces; ++l)
 			{
 				for (uint32 m = 0; m < mScenePtr->mMeshes[i]->mFaces[l].mNumIndices; ++m)
