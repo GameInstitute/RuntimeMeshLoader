@@ -127,7 +127,7 @@ FReturnedData ULoaderBPFunctionLibrary::LoadMesh(FString filepath, EPathType typ
 		file = TCHAR_TO_UTF8(*filepath);
 		break;
 	case EPathType::Relative:
-		file = TCHAR_TO_UTF8(*FPaths::Combine(FPaths::GameContentDir(), filepath));
+		file = TCHAR_TO_UTF8(*FPaths::Combine(FPaths::ProjectContentDir(), filepath));
 		break;
 	}
 
