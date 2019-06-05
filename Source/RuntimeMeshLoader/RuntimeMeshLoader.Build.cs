@@ -33,10 +33,10 @@ namespace UnrealBuildTool.Rules
                 }
             );
 
-            foreach(string Pathad in PublicIncludePaths)
-            {
-                Log.TraceInformation("PublicIncludePaths: " + Pathad);
-            }
+            //foreach(string Pathad in PublicIncludePaths)
+            //{
+            //    Log.TraceInformation("PublicIncludePaths: " + Pathad);
+            //}
 
             PrivateIncludePaths.AddRange(
                 new string[] {
