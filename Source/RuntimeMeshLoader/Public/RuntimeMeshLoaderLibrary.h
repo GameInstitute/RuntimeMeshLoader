@@ -4,6 +4,7 @@
 #include "ProceduralMeshComponent.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "LatentActions.h"
+#include "Engine/LatentActionManager.h"
 #include "RuntimeMeshLoaderLibrary.generated.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogRuntimeMeshLoader, Log, All)
