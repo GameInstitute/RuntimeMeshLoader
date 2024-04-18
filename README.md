@@ -1,5 +1,7 @@
 # RuntimeMeshLoader
 RuntimeMeshLoader for UE4  
+
+This repo was achieved. If you need the same feature like this, I recommend glTFRuntime(https://github.com/rdeioris/glTFRuntime).
   
 Use this plugin with ProceduralMeshComponent, you can load mesh with Blueprint in runtime,support relative and absolute Path.  
 
